@@ -1,6 +1,6 @@
 import axios from "axios";
-const baseurl = "http://localhost:4200/api";
-
+const baseurl = process.env.REACT_APP_SERVER_URL;
+console.log({ baseurl });
 const endPoints = {
   artiste: {
     getArtiste3RandAlbums: `/artist/getRandomAlbums`,

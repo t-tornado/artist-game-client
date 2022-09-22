@@ -109,7 +109,9 @@ export function useGamePage() {
     (async function () {
       console.log({ artiste });
       const data = await AppAPI.getArtistRandomAlbums(artiste);
-      setAlbums(data?.map((alb: any) => alb.collectionCensoredName));
+      if (data) {
+        setAlbums(data?.map((alb: any) => alb.collectionCensoredName));
+      }
     })();
   }, [artiste]);
 
