@@ -8,10 +8,10 @@ interface Props {
 export const AppBackground: React.FC<Props> = (props) => {
   return (
     <div
-      className={`h-screen w-screen bg-[url('./assets/background.jpg')] overflow-x-hidden overflow-y-auto`}
+      className={`h-screen w-screen bg-[url('./assets/background.jpg')] overflow-hidden`}
     >
       <div
-        className={`h-full w-full backdrop-blur-3xl bg-[#00000050]  ${props?.className}`}
+        className={`h-full w-full backdrop-blur-3xl bg-[#00000050] overflow-y-auto ${props?.className}`}
       >
         {props.children}
       </div>
