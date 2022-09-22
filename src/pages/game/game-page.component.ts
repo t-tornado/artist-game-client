@@ -13,9 +13,9 @@ export function useGamePage() {
   const [resetTexbox, setResetTextbox] = useState(false);
   const [GAME_STATE, setGameState] = useState<GameState>("PLAYING");
   const [currentTry, setCurrentTry] = useState(1);
-  const [score, setScore] = useState(userprogress.score ?? 0);
+  const [score, setScore] = useState(userprogress?.score ?? 0);
   const [artiste, setArtiste] = useState(generateNewArtiste());
-  const [round, setRound] = useState(userprogress.round ?? 0);
+  const [round, setRound] = useState(userprogress?.round ?? 0);
   const [albums, setAlbums] = useState([]);
   const inputElementRef = React.createRef<HTMLInputElement>();
 
