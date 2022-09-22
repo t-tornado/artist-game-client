@@ -31,17 +31,19 @@ export const GamePage: React.FC = () => {
     <>
       {GAME_STATE === "PLAYING" ? (
         <main className="flex flex-col w-full h-full items-center">
-          <h1 className="font-bold text-white text-5xl">Round {round}</h1>
-          <div className="flex w-full h-full justify-center">
-            <section className="w-1/3 h-full space-y-3 mt-16">
+          <h1 className="font-bold text-white text-2xl lg:5xl mt-5 lg:mt-0">
+            Round {round}
+          </h1>
+          <div className="flex flex-col lg:flex-row w-full h-fit lg:h-full items-center justify-start lg:justify-center lg:items-start">
+            <section className="w-full lg:w-1/3 h-full space-y-3 mt-4 lg:mt-16">
               <h4 className="text-sm font-bold font-poppins text-[#a8a8a8]">
                 TRIES LEFT
               </h4>
               {renderAlbums()}
             </section>
-            <section className="w-2/3 h-full pl-10 font-poppins">
+            <section className="w-full lg:w-2/3 h-full pl-0 lg:pl-10 font-poppins">
               <div className="flex items-center space-x-4 mt-10">
-                <h2 className="text-white text-2xl">
+                <h2 className="text-white text-xl lg:text-2xl">
                   For {currentTry === 1 ? 5 : currentTry === 2 ? 3 : 1} points
                 </h2>
                 <div className="flex space-x-0">
@@ -50,10 +52,10 @@ export const GamePage: React.FC = () => {
                   )}
                 </div>
               </div>
-              <p className="text-white text-md">
+              <p className="text-white text-sm lg:text-md">
                 Guess the fullname of this Album's artiste
               </p>
-              <h3 className="font-poppins text-4xl text-white font-bold mt-8">
+              <h3 className="font-poppins text-2xl lg:text-4xl text-white font-bold mt-8">
                 {currentAlbum ? `"${currentAlbum}"` : null}
               </h3>
               <HintBox className="mt-5" visible={currentTry === 3} />
@@ -63,7 +65,7 @@ export const GamePage: React.FC = () => {
                   reset={resetTexbox}
                   onSubmit={onSubmitAnswer}
                 />
-                <div className="flex w-1/2 justify-between mt-10 items-center">
+                <div className="flex w-full lg:w-1/2 justify-between mt-10 items-center">
                   <ScoreTag score={score} />
                   <button
                     onClick={(e: any) => {

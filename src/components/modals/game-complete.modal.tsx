@@ -32,7 +32,7 @@ export const GameCompleteModal: React.FC<Props> = (props) => {
       {state === "DEFAULT" || state === "ERROR" ? (
         <>
           {" "}
-          <h5 className="text-white text-xl">
+          <h5 className="text-white text-sm lg:text-xl">
             Enter a username to save your progress
           </h5>
           <TextBox

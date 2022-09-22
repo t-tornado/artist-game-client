@@ -16,9 +16,9 @@ export const Scoreboard: React.FC = () => {
             <td className="flex space-x-5 items-center">
               <div
                 style={{ backgroundColor: usr.color }}
-                className="h-10 w-10 rounded-full flex justify-center items-center"
+                className="h-8 lg:h-10 w-8  lg:w-10 rounded-full flex justify-center items-center"
               >
-                <FaRobot color="white" size="20px" />
+                <FaRobot color="white" className="h-5 lg:h-8" />
               </div>
               <span>{usr.username}</span>
             </td>
@@ -30,14 +30,13 @@ export const Scoreboard: React.FC = () => {
   }
   return (
     <div className="h-full w-full flex flex-col items-center">
-      <header className="text-bold text-4xl text-white mt-5">Scoreboard</header>
+      <header className="text-bold text-2xl lg:text-4xl text-white mt-10 lg:mt-5">
+        Scoreboard
+      </header>
       <main className="h-full w-full">
         {!error && !loading ? (
           <>
-            <table
-              style={{ width: "60%" }}
-              className="mx-auto border-separate border-spacing-3"
-            >
+            <table className="mx-auto border-separate border-spacing-5 lg:border-spacing-3 w-full lg:w-[60%]">
               <colgroup>
                 <col width="80%" />
                 <col width="20%" />
@@ -48,7 +47,9 @@ export const Scoreboard: React.FC = () => {
                   <th>Score</th>
                 </tr>
               </thead>
-              <tbody className="text-md text-white">{renderUserScores()}</tbody>
+              <tbody className="text-sm lg:text-md text-white">
+                {renderUserScores()}
+              </tbody>
             </table>
           </>
         ) : (
