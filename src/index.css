@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "LOGO";
+  src: url("./assets/fonts/logo-font.otf");
+}
+.triangle {
+  width: 30px;
+  height: 30px;
+  background: red linear-gradient(red, blue);
+  clip-path: polygon(0% 0%, 50% 50%, 0% 100%);
+}
+
+body {
+  font-family: "Poppins";
+}
