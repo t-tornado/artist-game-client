@@ -22,7 +22,7 @@ export function useGamePage() {
   /**
    * DERIVED VALUES
    */
-  const currentAlbum = useMemo(() => {
+  const currentAlbum: any = useMemo(() => {
     return albums.find((alb, idx) => idx + 1 === currentTry);
   }, [currentTry, albums]);
 
@@ -109,8 +109,14 @@ export function useGamePage() {
     (async function () {
       console.log({ artiste });
       const data = await AppAPI.getArtistRandomAlbums(artiste);
+      console.log({ data });
       if (data) {
-        setAlbums(data?.map((alb: any) => alb.collectionCensoredName));
+        setAlbums(
+          data?.map((alb: any) => ({
+            title: alb.collectionCensoredName,
+            cover: alb.artworkUrl100,
+          }))
+        );
       }
     })();
   }, [artiste]);

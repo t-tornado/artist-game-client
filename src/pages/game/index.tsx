@@ -20,12 +20,18 @@ export const GamePage: React.FC = () => {
   }
 
   function renderAlbums() {
-    return albums.map((al, idx) => {
+    return albums.map((al: any, idx: number) => {
       return (
-        <AlbumContainer key={idx} title={al} visible={currentTry >= idx + 1} />
+        <AlbumContainer
+          key={idx}
+          title={al?.title}
+          visible={currentTry >= idx + 1}
+        />
       );
     });
   }
+
+  console.log({ currentAlbum });
 
   return (
     <>
@@ -56,9 +62,13 @@ export const GamePage: React.FC = () => {
                 Guess the fullname of this Album's artiste
               </p>
               <h3 className="font-poppins text-2xl lg:text-4xl text-white font-bold mt-8">
-                {currentAlbum ? `"${currentAlbum}"` : null}
+                {currentAlbum?.title ? `"${currentAlbum?.title}"` : null}
               </h3>
-              <HintBox className="mt-5" visible={currentTry === 3} />
+              <HintBox
+                className="mt-5"
+                visible={currentTry === 3}
+                src={currentAlbum?.cover}
+              />
               <div className="mt-16">
                 <TextBox
                   ref={inputElementRef}

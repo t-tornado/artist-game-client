@@ -4,6 +4,7 @@ import { AppAssets } from "../../assets";
 interface Props {
   className?: string;
   visible: boolean;
+  src?: string;
 }
 
 export const HintBox: React.FC<Props> = (props) => {
@@ -12,7 +13,7 @@ export const HintBox: React.FC<Props> = (props) => {
     <figure
       className={`flex flex-col space-y-2 items-center w-[120px] h-auto text-white text-md font-poppins ${props?.className}`}
     >
-      <img height={100} width={100} src={AppAssets.Mary} alt="album cover" />
+      <img height={100} width={100} src={props?.src} alt="album cover" />
       <figcaption>HINT</figcaption>
     </figure>
   );
