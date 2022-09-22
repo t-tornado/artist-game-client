@@ -22,7 +22,7 @@ const API = axios.create({
 class AppAPIClass {
   async getArtistRandomAlbums(artiste: string) {
     const data = await API.get(
-      `${endPoints.artiste.getArtiste3RandAlbums}/?name=${artiste}`
+      `${endPoints.artiste.getArtiste3RandAlbums}?name=${artiste}`
     );
     return data.data.data;
   }
