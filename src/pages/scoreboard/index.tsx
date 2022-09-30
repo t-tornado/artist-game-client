@@ -9,7 +9,7 @@ export const Scoreboard: React.FC = () => {
   const { error, loading } = states;
 
   function renderUserScores() {
-    return users.map((usr, idx) => {
+    return users?.map((usr, idx) => {
       return (
         <React.Fragment key={idx}>
           <tr className="text-lg text-white">

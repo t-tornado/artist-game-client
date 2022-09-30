@@ -20,7 +20,7 @@ export const GamePage: React.FC = () => {
   }
 
   function renderAlbums() {
-    return albums.map((al: any, idx: number) => {
+    return albums?.map((al: any, idx: number) => {
       return (
         <AlbumContainer
           key={idx}
@@ -30,8 +30,6 @@ export const GamePage: React.FC = () => {
       );
     });
   }
-
-  console.log({ currentAlbum });
 
   return (
     <>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaSolarPanel } from "react-icons/fa";
-import { AppAPI } from "../../api";
+import { UserService } from "../../api";
 import { Loading, TextBox } from "../shared";
 
 interface Props {
@@ -17,11 +17,10 @@ export const GameCompleteModal: React.FC<Props> = (props) => {
     if (username) {
       try {
         setState("SUBMITTING");
-        await AppAPI.createUser({ username, score: props.score });
+        await UserService.createUser({ username, score: props.score });
         setState("SUBMITTED");
       } catch (error: any) {
-        console.log({ error });
-        setErrorMessage(error);
+        setErrorMessage(error.message);
         setState("ERROR");
       }
     }
@@ -31,7 +30,6 @@ export const GameCompleteModal: React.FC<Props> = (props) => {
     <div className="h-56 bg-black p-6 flex flex-col space-y-5 justify-around items-center">
       {state === "DEFAULT" || state === "ERROR" ? (
         <>
-          {" "}
           <h5 className="text-white text-sm lg:text-xl">
             Enter a username to save your progress
           </h5>

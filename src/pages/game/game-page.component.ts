@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { AppAPI } from "../../api";
+import { ArtisteService } from "../../api";
 import {
   artistes,
   GameState,
@@ -11,7 +11,7 @@ import {
 export function useGamePage() {
   const userprogress = getUserProgress();
   const [resetTexbox, setResetTextbox] = useState(false);
-  const [GAME_STATE, setGameState] = useState<GameState>("PLAYING");
+  const [GAME_STATE, setGameState] = useState<GameState>("ENDED");
   const [currentTry, setCurrentTry] = useState(1);
   const [score, setScore] = useState(userprogress?.score ?? 0);
   const [artiste, setArtiste] = useState(generateNewArtiste());
@@ -40,7 +40,6 @@ export function useGamePage() {
       // make api call to itunes for next albums list
       // set album list results to albums state
     } else {
-      console.log("Failed try");
       setCurrentTry((prev) => {
         const updatedTry = prev + 1;
         if (updatedTry > 3) {
@@ -64,7 +63,6 @@ export function useGamePage() {
   }
 
   function updateRound() {
-    console.log("Calling update rounds");
     setRound(() => {
       const updatedRound = round + 1;
       if (updatedRound > 5) {
@@ -95,7 +93,6 @@ export function useGamePage() {
    * EFFECTS
    */
   useEffect(() => {
-    console.log({ currentTry });
     const progress = {
       round,
       score,
@@ -107,9 +104,7 @@ export function useGamePage() {
     // make api call to apple
     // set albums
     (async function () {
-      console.log({ artiste });
-      const data = await AppAPI.getArtistRandomAlbums(artiste);
-      console.log({ data });
+      const data = await ArtisteService.getArtistRandomAlbums(artiste);
       if (data) {
         setAlbums(
           data?.map((alb: any) => ({

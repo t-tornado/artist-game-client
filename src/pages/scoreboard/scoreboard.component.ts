@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AppAPI } from "../../api";
+import { UserService } from "../../api";
 
 export function useScoreboard() {
   const [users, setUsers] = useState<any[]>([]);
@@ -14,7 +14,7 @@ export function useScoreboard() {
       try {
         setLoading(true);
         setError(false);
-        const data = (await AppAPI.getUsers()) as [];
+        const data = (await UserService.getUsers()) as [];
         setUsers(data);
         setLoading(false);
         setError(false);
