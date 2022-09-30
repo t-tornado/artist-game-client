@@ -11,7 +11,7 @@ import {
 export function useGamePage() {
   const userprogress = getUserProgress();
   const [resetTexbox, setResetTextbox] = useState(false);
-  const [GAME_STATE, setGameState] = useState<GameState>("ENDED");
+  const [GAME_STATE, setGameState] = useState<GameState>("PLAYING");
   const [currentTry, setCurrentTry] = useState(1);
   const [score, setScore] = useState(userprogress?.score ?? 0);
   const [artiste, setArtiste] = useState(generateNewArtiste());
